@@ -14,7 +14,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        ArrayList <String> numbers = new ArrayList<String>();
+        ArrayList<String> numbers = new ArrayList<String>();
         numbers.add(getString(R.string.one));
         numbers.add(getString(R.string.two));
         numbers.add(getString(R.string.three));
@@ -28,13 +28,11 @@ public class NumbersActivity extends AppCompatActivity {
 
         LinearLayout listOfNumbers = findViewById(R.id.layout_id);
 
-        int index=0;
-        while (index < numbers.size()){
+        for (int index = 0; index < numbers.size(); index++) {
             TextView numberElement = new TextView(this);
             numberElement.setText(numbers.get(index));
             listOfNumbers.addView(numberElement);
-            index = index +1;
         }
-
     }
+
 }
