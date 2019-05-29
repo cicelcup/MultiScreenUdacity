@@ -44,16 +44,16 @@
     <string name="grandmother">grandmother</string>
     <string name="grandfather">grandfather</string>
 
-    <string name="Where_are_you_going">where are you going?</string>
-    <string name="What_is_your_name">what is your name?</string>
-    <string name="My_name_is">my name is...</string>
-    <string name="How_are_you_feeling">how are you feeling?</string>
-    <string name="I_m_feeling_good">I’m feeling good</string>
-    <string name="Are_you_coming">are you coming?</string>
-    <string name="Yes_I_m_coming">yes, I’m coming</string>
-    <string name="I_m_coming">I’m coming</string>
-    <string name="Let_s_go">let’s go</string>
-    <string name="Come_here">come here</string>
+    <string name="where_are_you_going">where are you going?</string>
+    <string name="what_is_your_name">what is your name?</string>
+    <string name="my_name_is">my name is...</string>
+    <string name="how_are_you_feeling">how are you feeling?</string>
+    <string name="i_m_feeling_good">I’m feeling good</string>
+    <string name="are_you_coming">are you coming?</string>
+    <string name="yes_I_m_coming">yes, I’m coming</string>
+    <string name="i_m_coming">I’m coming</string>
+    <string name="let_s_go">let’s go</string>
+    <string name="come_here">come here</string>
 
 
 </resources>
