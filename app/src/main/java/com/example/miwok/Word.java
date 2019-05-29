@@ -2,15 +2,15 @@ package com.example.miwok;
 
 public class Word {
     private String mMiwokWord;
-    private String mdefaultWord;
+    private String mDefaultWord;
 
-    public Word(String mMiwokWord, String mdefaultWord) {
+    public Word(String mDefaultWord, String mMiwokWord) {
         this.mMiwokWord = mMiwokWord;
-        this.mdefaultWord = mdefaultWord;
+        this.mDefaultWord = mDefaultWord;
     }
 
-    public String getMdefaultWord() {
-        return mdefaultWord;
+    public String getmDefaultWord() {
+        return mDefaultWord;
     }
 
     public String getmMiwokWord() {
