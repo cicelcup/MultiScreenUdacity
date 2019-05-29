@@ -12,20 +12,20 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words);
 
-        ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word(getString(R.string.one), "lutti"));
-        words.add(new Word(getString(R.string.two), "otiiko"));
-        words.add(new Word(getString(R.string.three), "tolookosu"));
-        words.add(new Word(getString(R.string.four), "oyyisa"));
-        words.add(new Word(getString(R.string.five), "massokka"));
-        words.add(new Word(getString(R.string.six), "temmokka"));
-        words.add(new Word(getString(R.string.seven), "kenekaku"));
-        words.add(new Word(getString(R.string.eight), "kawinta"));
-        words.add(new Word(getString(R.string.nine), "wo’e"));
-        words.add(new Word(getString(R.string.ten), "na’aacha"));
+        ArrayList<Word> numbersWords = new ArrayList<Word>();
+        numbersWords.add(new Word(getString(R.string.one), "lutti"));
+        numbersWords.add(new Word(getString(R.string.two), "otiiko"));
+        numbersWords.add(new Word(getString(R.string.three), "tolookosu"));
+        numbersWords.add(new Word(getString(R.string.four), "oyyisa"));
+        numbersWords.add(new Word(getString(R.string.five), "massokka"));
+        numbersWords.add(new Word(getString(R.string.six), "temmokka"));
+        numbersWords.add(new Word(getString(R.string.seven), "kenekaku"));
+        numbersWords.add(new Word(getString(R.string.eight), "kawinta"));
+        numbersWords.add(new Word(getString(R.string.nine), "wo’e"));
+        numbersWords.add(new Word(getString(R.string.ten), "na’aacha"));
 
 
-        WordAdapter itemsAdapter = new WordAdapter(this,words);
+        WordAdapter itemsAdapter = new WordAdapter(this,numbersWords);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
