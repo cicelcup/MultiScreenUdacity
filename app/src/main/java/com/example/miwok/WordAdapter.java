@@ -12,16 +12,16 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     public WordAdapter(Context context, ArrayList<Word> listOfWords) {
-        super(context, 0,listOfWords);
+        super(context, 0, listOfWords);
     }
 
     @Override
-    public View getView(int position,  View convertView,  ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         View currentView = convertView;
 
-        if (currentView == null){
-            currentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item,parent,false);
+        if (currentView == null) {
+            currentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
         Word currentWord = getItem(position);
@@ -33,7 +33,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         defaultWord.setText(currentWord.getmDefaultWord());
 
         ImageView imageView = (ImageView) currentView.findViewById(R.id.imageWords);
-        imageView.setImageResource(currentWord.getmImageResourceId());
+
+        if (currentWord.hasImage() != false) {
+            imageView.setImageResource(currentWord.getmImageResourceId());
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            imageView.setVisibility(View.GONE);
+        }
 
         return currentView;
     }

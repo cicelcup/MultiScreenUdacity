@@ -3,7 +3,8 @@ package com.example.miwok;
 public class Word {
     private String mMiwokWord;
     private String mDefaultWord;
-    private int mImageResourceId;
+    private static final int NO_IMAGE_PROVIDED = -1;
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
 
     public Word(String mDefaultWord, String mMiwokWord, int mImage) {
         this.mMiwokWord = mMiwokWord;
@@ -28,4 +29,7 @@ public class Word {
         return mImageResourceId;
     }
 
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
 }
