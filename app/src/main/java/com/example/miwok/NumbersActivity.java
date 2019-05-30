@@ -2,15 +2,26 @@ package com.example.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = NumbersActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words);
+
+        String[] array = new String[10];
+        int size = array.length;
+
+        for (int index = 0; index < size; index++) {
+            array[index] = "Jorge " + index;
+            Log.d(LOG_TAG, array[index]);
+        }
 
         ArrayList<Word> numbersWords = new ArrayList<Word>();
         numbersWords.add(new Word(getString(R.string.one), "lutti"));
