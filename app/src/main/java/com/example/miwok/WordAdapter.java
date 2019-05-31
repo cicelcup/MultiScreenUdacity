@@ -24,6 +24,30 @@ public class WordAdapter extends ArrayAdapter<Word> {
             currentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
+        String whichClass = getContext().getClass().getSimpleName();
+
+        switch (whichClass) {
+            case "ColorsActivity":
+                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_colors));
+                break;
+
+            case "FamilyActivity":
+                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_family));
+                break;
+
+            case "NumbersActivity":
+                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_numbers));
+                break;
+
+            case "PhrasesActivity":
+                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_phrases));
+                break;
+
+            default:
+                break;
+        }
+
+
         Word currentWord = getItem(position);
 
         TextView miworkWord = (TextView) currentView.findViewById(R.id.miwok_word_view);
