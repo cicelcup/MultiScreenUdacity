@@ -1,18 +1,24 @@
+/*package of the app*/
 package com.example.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
 
+//Libraries for the list view that shows the words and the array list for the storage of the information
+import android.widget.ListView;
 import java.util.ArrayList;
 
+//Extension of the app compact activity
 public class FamilyActivity extends AppCompatActivity {
 
+    //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //layout to open
         setContentView(R.layout.words);
 
+        //Array list where is store the words in english, mitowk and with the image to display
         ArrayList<Word> familyWords = new ArrayList<Word>();
 
         familyWords.add(new Word(getString(R.string.father), "әpә", R.drawable.family_father));
@@ -26,8 +32,10 @@ public class FamilyActivity extends AppCompatActivity {
         familyWords.add(new Word(getString(R.string.grandmother), "ama", R.drawable.family_grandmother));
         familyWords.add(new Word(getString(R.string.grandfather), "paapa", R.drawable.family_grandfather));
 
+        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
         WordAdapter itemsAdapter = new WordAdapter(this, familyWords);
 
+        //List view where is stored the adapter
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
     }

@@ -1,20 +1,29 @@
+/*package of the app*/
 package com.example.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+//Lof for testing the log class
 import android.util.Log;
+
+//Libraries for the list view that shows the words and the array list for the storage of the information
 import android.widget.ListView;
 import java.util.ArrayList;
 
+//Extension of the app compact activity
 public class NumbersActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = NumbersActivity.class.getSimpleName();
 
+    //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //layout to open
         setContentView(R.layout.words);
 
+        //testing the Log class with an array and a foor loop
         String[] array = new String[10];
         int size = array.length;
 
@@ -23,6 +32,8 @@ public class NumbersActivity extends AppCompatActivity {
             Log.d(LOG_TAG, array[index]);
         }
 
+
+        //Array list where is store the words in english, mitowk and with the image to display
         ArrayList<Word> numbersWords = new ArrayList<Word>();
         numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one));
         numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two));
@@ -36,10 +47,11 @@ public class NumbersActivity extends AppCompatActivity {
         numbersWords.add(new Word(getString(R.string.ten), "na’aacha", R.drawable.number_ten));
 
 
+        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
         WordAdapter itemsAdapter = new WordAdapter(this,numbersWords);
 
+        //List view where is stored the adapter
         ListView listView = (ListView) findViewById(R.id.list);
-
         listView.setAdapter(itemsAdapter);
 
     }

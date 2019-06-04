@@ -1,3 +1,4 @@
+<!--All the names of the application in english-->
 <resources>
     <!-- Category name for phrases [CHAR LIMIT=20] -->
     <string name="category_phrases">Phrases</string>

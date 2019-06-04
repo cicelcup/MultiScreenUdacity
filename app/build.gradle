@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+/*applying the configuration for build project*/
 android {
     compileSdkVersion 28
     defaultConfig {

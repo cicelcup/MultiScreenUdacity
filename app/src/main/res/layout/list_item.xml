@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Layout for the list using in the adapter. Formed with an image and two text view-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,12 +6,14 @@
     android:orientation="horizontal"
     android:minHeight="@dimen/list_item_height">
 
+    <!--Using the resources of dimensions and color-->
     <ImageView
         android:id="@+id/imageWords"
         android:layout_width="@dimen/list_item_width"
         android:layout_height="@dimen/list_item_height"
         android:background="@color/tan_background" />
 
+    <!--A vertical layout with the two words styled with words position-->
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="match_parent"

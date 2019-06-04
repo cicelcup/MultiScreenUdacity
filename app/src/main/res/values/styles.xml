@@ -6,6 +6,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
+    <!--Category style with match parent in width, list_item in height, center vertical, with padding
+    and white letters-->
     <style name="CategoryStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/list_item_height</item>
@@ -16,6 +18,8 @@
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
+    <!--words position with match parent in width, wrapping the content in height and dividing
+    the space remaining in proportional spaces using weight attribute-->
     <style name="words_position">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

@@ -1,18 +1,24 @@
+/*package of the app*/
 package com.example.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
 
+//Libraries for the list view that shows the words and the array list for the storage of the information
+import android.widget.ListView;
 import java.util.ArrayList;
 
+//Extension of the app compact activity
 public class PhrasesActivity extends AppCompatActivity {
 
+    //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //layout to open
         setContentView(R.layout.words);
 
+        //Array list where is store the words in english and mitow
         ArrayList<Word> phrasesWords = new ArrayList<Word>();
         phrasesWords.add(new Word(getString(R.string.where_are_you_going), "minto wuksus"));
         phrasesWords.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә"));
@@ -25,8 +31,10 @@ public class PhrasesActivity extends AppCompatActivity {
         phrasesWords.add(new Word(getString(R.string.let_s_go), "yoowutis"));
         phrasesWords.add(new Word(getString(R.string.come_here), "әnni'nem"));
 
+        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
         WordAdapter itemsAdapter = new WordAdapter(this, phrasesWords);
 
+        //List view where is stored the adapter
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
     }

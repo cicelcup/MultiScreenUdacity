@@ -1,19 +1,25 @@
+/*package of the app*/
 package com.example.miwok;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
 
+//Libraries for the list view that shows the words and the array list for the storage of the information
+import android.widget.ListView;
 import java.util.ArrayList;
 
+//Extension of the app compact activity
 public class ColorsActivity extends AppCompatActivity {
 
+    //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //layout to open
         setContentView(R.layout.words);
 
+        //Array list where is store the words in english, mitowk and with the image to display
         ArrayList<Word> colorsWords = new ArrayList<Word>();
+
         colorsWords.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red));
         colorsWords.add(new Word(getString(R.string.mustard_yellow), "chiwiiṭә", R.drawable.color_mustard_yellow));
         colorsWords.add(new Word(getString(R.string.dusty_yellow), "ṭopiisә", R.drawable.color_dusty_yellow));
@@ -23,8 +29,10 @@ public class ColorsActivity extends AppCompatActivity {
         colorsWords.add(new Word(getString(R.string.black), "kululli", R.drawable.color_black));
         colorsWords.add(new Word(getString(R.string.white), "kelelli", R.drawable.color_white));
 
+        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
         WordAdapter itemsAdapter = new WordAdapter(this, colorsWords);
 
+        //List view where is stored the adapter
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
