@@ -9,12 +9,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 
 //Extension of the app compact activity
 public class PhrasesActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer; //media for play the files
+    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
+
     //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +53,13 @@ public class PhrasesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                releaseMediaPlayer();
+
                 mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getmSound());
                 mMediaPlayer.start();
+
+                mMediaPlayer.setOnCompletionListener(onCompletionListener);
             }
         });
     }

@@ -18,7 +18,13 @@ import static android.widget.AdapterView.*;
 //Extension of the app compact activity
 public class ColorsActivity extends AppCompatActivity {
 
-    MediaPlayer mMediaPLayer; //MediaPlayer Component
+    private MediaPlayer mMediaPLayer; //MediaPlayer Component
+    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
     //Overriding the on create method to open the activity
     @Override
@@ -55,16 +61,12 @@ public class ColorsActivity extends AppCompatActivity {
                 //Toast toast = Toast.makeText(ColorsActivity.this, colorsWords.get(position).toString(), Toast.LENGTH_SHORT);
                 //toast.show();
 
+                releaseMediaPlayer();
                 //Playing the audio file
                 mMediaPLayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getmSound());
+
                 mMediaPLayer.start();
-/*                mMediaPLayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        releaseMediaPlayer();
-                    }
-                })*/
-                ;
+                mMediaPLayer.setOnCompletionListener(onCompletionListener);
             }
         };
 

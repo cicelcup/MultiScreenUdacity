@@ -19,6 +19,12 @@ public class NumbersActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = NumbersActivity.class.getSimpleName();
     private MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
     //Overriding the on create method to open the activity
     @Override
@@ -62,9 +68,13 @@ public class NumbersActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                releaseMediaPlayer();
                 //playing the file
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getmSound());
                 mMediaPlayer.start();
+
+                mMediaPlayer.setOnCompletionListener(onCompletionListener);
             }
         };
 

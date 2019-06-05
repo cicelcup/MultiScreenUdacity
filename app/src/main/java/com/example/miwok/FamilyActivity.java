@@ -15,6 +15,12 @@ import java.util.ArrayList;
 public class FamilyActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPLayer; //MediaPlayer Component
+    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
     //Overriding the on create method to open the activity
     @Override
@@ -48,9 +54,13 @@ public class FamilyActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                releaseMediaPlayer();
                 //Playing the file
                 mMediaPLayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getmSound());
                 mMediaPLayer.start();
+
+                mMediaPLayer.setOnCompletionListener(onCompletionListener);
             }
         };
 
