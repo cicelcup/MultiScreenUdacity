@@ -14,6 +14,8 @@ import java.util.ArrayList;
 //Extension of the app compact activity
 public class FamilyActivity extends AppCompatActivity {
 
+    private MediaPlayer mMediaPLayer; //MediaPlayer Component
+
     //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +49,25 @@ public class FamilyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Playing the file
-                MediaPlayer mediaPlayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getmSound());
-                mediaPlayer.start();
+                mMediaPLayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getmSound());
+                mMediaPLayer.start();
             }
         };
 
         listView.setOnItemClickListener(mMessageClickedHandler);
+    }
+
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPLayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPLayer.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPLayer = null;
+        }
     }
 }

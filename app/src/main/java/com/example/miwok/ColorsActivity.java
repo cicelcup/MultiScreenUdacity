@@ -18,6 +18,8 @@ import static android.widget.AdapterView.*;
 //Extension of the app compact activity
 public class ColorsActivity extends AppCompatActivity {
 
+    MediaPlayer mMediaPLayer; //MediaPlayer Component
+
     //Overriding the on create method to open the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +56,37 @@ public class ColorsActivity extends AppCompatActivity {
                 //toast.show();
 
                 //Playing the audio file
-                MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getmSound());
-                mediaPlayer.start();
+                mMediaPLayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getmSound());
+                mMediaPLayer.start();
+/*                mMediaPLayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        releaseMediaPlayer();
+                    }
+                })*/
+                ;
             }
         };
 
         listView.setOnItemClickListener(mMessageClickedHandler);
 
+    }
 
+    /**
+     * Code Snippet from Udacity
+     * Clean up the media player by releasing its resources.
+     */
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPLayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPLayer.release();
 
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPLayer = null;
+        }
     }
 }
