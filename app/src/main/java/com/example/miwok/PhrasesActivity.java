@@ -41,7 +41,7 @@ public class PhrasesActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
-        AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+/*        AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MediaPlayer mediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getmSound());
@@ -49,6 +49,14 @@ public class PhrasesActivity extends AppCompatActivity {
             }
         };
 
-        listView.setOnItemClickListener(mMessageClickedHandler);
+        listView.setOnItemClickListener(mMessageClickedHandler);*/
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getmSound());
+                mediaPlayer.start();
+            }
+        });
     }
 }
