@@ -47,10 +47,10 @@ public class ColorsActivity extends AppCompatActivity {
         OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast toast = Toast.makeText(getBaseContext(), "Jorge " + Integer.toString(position), Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(ColorsActivity.this, "Jorge " + Integer.toString(position), Toast.LENGTH_SHORT);
                 toast.show();
 
-                MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.number_one);
+                MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.number_one);
                 mediaPlayer.start();
             }
         };
