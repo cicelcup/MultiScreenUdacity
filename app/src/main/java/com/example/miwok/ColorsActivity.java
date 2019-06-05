@@ -1,11 +1,19 @@
 /*package of the app*/
 package com.example.miwok;
+
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 //Libraries for the list view that shows the words and the array list for the storage of the information
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
+
+import static android.widget.AdapterView.*;
 
 //Extension of the app compact activity
 public class ColorsActivity extends AppCompatActivity {
@@ -35,6 +43,21 @@ public class ColorsActivity extends AppCompatActivity {
         //List view where is stored the adapter
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
+
+        OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast toast = Toast.makeText(getBaseContext(), "Jorge " + Integer.toString(position), Toast.LENGTH_SHORT);
+                toast.show();
+
+                MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.number_one);
+                mediaPlayer.start();
+            }
+        };
+
+        listView.setOnItemClickListener(mMessageClickedHandler);
+
+
 
     }
 }
