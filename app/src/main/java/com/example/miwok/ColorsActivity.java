@@ -50,9 +50,10 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast of example
-                //Toast toast = Toast.makeText(ColorsActivity.this, "Jorge " + Integer.toString(position), Toast.LENGTH_SHORT);
+                //Toast toast = Toast.makeText(ColorsActivity.this, colorsWords.get(position).toString(), Toast.LENGTH_SHORT);
                 //toast.show();
 
+                //Playing the audio file
                 MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getmSound());
                 mediaPlayer.start();
             }

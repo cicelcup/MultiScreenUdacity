@@ -57,9 +57,11 @@ public class NumbersActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
+        //Creating the onclick method
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //playing the file
                 MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getmSound());
                 mediaPlayer.start();
             }

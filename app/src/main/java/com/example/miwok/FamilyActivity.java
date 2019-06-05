@@ -42,9 +42,11 @@ public class FamilyActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
+        //Creating the onclick method
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Playing the file
                 MediaPlayer mediaPlayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getmSound());
                 mediaPlayer.start();
             }
