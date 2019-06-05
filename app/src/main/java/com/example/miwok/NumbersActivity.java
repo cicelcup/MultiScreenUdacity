@@ -35,16 +35,16 @@ public class NumbersActivity extends AppCompatActivity {
 
         //Array list where is store the words in english, mitowk and with the image to display
         ArrayList<Word> numbersWords = new ArrayList<Word>();
-        numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one));
-        numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two));
-        numbersWords.add(new Word(getString(R.string.three), "tolookosu", R.drawable.number_three));
-        numbersWords.add(new Word(getString(R.string.four), "oyyisa", R.drawable.number_four));
-        numbersWords.add(new Word(getString(R.string.five), "massokka", R.drawable.number_five));
-        numbersWords.add(new Word(getString(R.string.six), "temmokka", R.drawable.number_six));
-        numbersWords.add(new Word(getString(R.string.seven), "kenekaku", R.drawable.number_seven));
-        numbersWords.add(new Word(getString(R.string.eight), "kawinta", R.drawable.number_eight));
-        numbersWords.add(new Word(getString(R.string.nine), "wo’e", R.drawable.number_nine));
-        numbersWords.add(new Word(getString(R.string.ten), "na’aacha", R.drawable.number_ten));
+        numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one, R.raw.number_one));
+        numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two, R.raw.number_two));
+        numbersWords.add(new Word(getString(R.string.three), "tolookosu", R.drawable.number_three, R.raw.number_three));
+        numbersWords.add(new Word(getString(R.string.four), "oyyisa", R.drawable.number_four, R.raw.number_four));
+        numbersWords.add(new Word(getString(R.string.five), "massokka", R.drawable.number_five, R.raw.number_five));
+        numbersWords.add(new Word(getString(R.string.six), "temmokka", R.drawable.number_six, R.raw.number_six));
+        numbersWords.add(new Word(getString(R.string.seven), "kenekaku", R.drawable.number_seven, R.raw.number_seven));
+        numbersWords.add(new Word(getString(R.string.eight), "kawinta", R.drawable.number_eight, R.raw.number_eight));
+        numbersWords.add(new Word(getString(R.string.nine), "wo’e", R.drawable.number_nine, R.raw.number_nine));
+        numbersWords.add(new Word(getString(R.string.ten), "na’aacha", R.drawable.number_ten, R.raw.number_ten));
 
 
         //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
