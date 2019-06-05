@@ -1,10 +1,13 @@
 /*package of the app*/
 package com.example.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 //Libraries for the list view that shows the words and the array list for the storage of the information
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -19,7 +22,7 @@ public class FamilyActivity extends AppCompatActivity {
         setContentView(R.layout.words);
 
         //Array list where is store the words in english, mitowk and with the image to display
-        ArrayList<Word> familyWords = new ArrayList<Word>();
+        final ArrayList<Word> familyWords = new ArrayList<Word>();
 
         familyWords.add(new Word(getString(R.string.father), "әpә", R.drawable.family_father, R.raw.family_father));
         familyWords.add(new Word(getString(R.string.mother), "әṭa", R.drawable.family_mother, R.raw.family_mother));
@@ -38,5 +41,15 @@ public class FamilyActivity extends AppCompatActivity {
         //List view where is stored the adapter
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
+
+        AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getmSound());
+                mediaPlayer.start();
+            }
+        };
+
+        listView.setOnItemClickListener(mMessageClickedHandler);
     }
 }

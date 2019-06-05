@@ -26,7 +26,7 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.words);
 
         //Array list where is store the words in english, mitowk and with the image to display
-        ArrayList<Word> colorsWords = new ArrayList<Word>();
+        final ArrayList<Word> colorsWords = new ArrayList<Word>();
 
         colorsWords.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
         colorsWords.add(new Word(getString(R.string.mustard_yellow), "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
@@ -53,7 +53,7 @@ public class ColorsActivity extends AppCompatActivity {
                 //Toast toast = Toast.makeText(ColorsActivity.this, "Jorge " + Integer.toString(position), Toast.LENGTH_SHORT);
                 //toast.show();
 
-                MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.number_one);
+                MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getmSound());
                 mediaPlayer.start();
             }
         };

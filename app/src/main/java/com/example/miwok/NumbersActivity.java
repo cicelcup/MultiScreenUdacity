@@ -1,6 +1,7 @@
 /*package of the app*/
 package com.example.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 //Libraries for the list view that shows the words and the array list for the storage of the information
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -34,7 +37,7 @@ public class NumbersActivity extends AppCompatActivity {
 
 
         //Array list where is store the words in english, mitowk and with the image to display
-        ArrayList<Word> numbersWords = new ArrayList<Word>();
+        final ArrayList<Word> numbersWords = new ArrayList<Word>();
         numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one, R.raw.number_one));
         numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two, R.raw.number_two));
         numbersWords.add(new Word(getString(R.string.three), "tolookosu", R.drawable.number_three, R.raw.number_three));
@@ -53,6 +56,16 @@ public class NumbersActivity extends AppCompatActivity {
         //List view where is stored the adapter
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
+
+        AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getmSound());
+                mediaPlayer.start();
+            }
+        };
+
+        listView.setOnItemClickListener(mMessageClickedHandler);
 
     }
 

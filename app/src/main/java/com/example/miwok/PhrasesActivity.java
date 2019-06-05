@@ -1,10 +1,13 @@
 /*package of the app*/
 package com.example.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 //Libraries for the list view that shows the words and the array list for the storage of the information
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -19,7 +22,7 @@ public class PhrasesActivity extends AppCompatActivity {
         setContentView(R.layout.words);
 
         //Array list where is store the words in english and mitow
-        ArrayList<Word> phrasesWords = new ArrayList<Word>();
+        final ArrayList<Word> phrasesWords = new ArrayList<Word>();
         phrasesWords.add(new Word(getString(R.string.where_are_you_going), "minto wuksus", R.raw.phrase_where_are_you_going));
         phrasesWords.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
         phrasesWords.add(new Word(getString(R.string.my_name_is), "oyaaset...", R.raw.phrase_my_name_is));
@@ -37,5 +40,15 @@ public class PhrasesActivity extends AppCompatActivity {
         //List view where is stored the adapter
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
+
+        AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getmSound());
+                mediaPlayer.start();
+            }
+        };
+
+        listView.setOnItemClickListener(mMessageClickedHandler);
     }
 }
