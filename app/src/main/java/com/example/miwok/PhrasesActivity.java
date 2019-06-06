@@ -2,15 +2,15 @@
 package com.example.miwok;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-//Libraries for the list view that shows the words and the array list for the storage of the information
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+//Libraries for the list view that shows the words and the array list for the storage of the information
 
 //Extension of the app compact activity
 public class PhrasesActivity extends AppCompatActivity {
@@ -62,6 +62,12 @@ public class PhrasesActivity extends AppCompatActivity {
                 mMediaPlayer.setOnCompletionListener(onCompletionListener);
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 
     /**

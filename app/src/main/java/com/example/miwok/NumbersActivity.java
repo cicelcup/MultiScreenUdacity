@@ -2,17 +2,17 @@
 package com.example.miwok;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-//Lof for testing the log class
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-//Libraries for the list view that shows the words and the array list for the storage of the information
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.util.ArrayList;
+
+//Lof for testing the log class
+//Libraries for the list view that shows the words and the array list for the storage of the information
 
 //Extension of the app compact activity
 public class NumbersActivity extends AppCompatActivity {
@@ -80,6 +80,12 @@ public class NumbersActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener(mMessageClickedHandler);
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 
     /**
