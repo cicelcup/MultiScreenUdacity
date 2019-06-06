@@ -54,7 +54,7 @@ public class NumbersActivity extends AppCompatActivity {
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //testing the Log class with an array and a foor loop
-        String[] array = new String[10];
+        String[] array = new String[3];
         int size = array.length;
 
         for (int index = 0; index < size; index++) {
