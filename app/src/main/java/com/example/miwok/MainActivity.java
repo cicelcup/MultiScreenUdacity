@@ -7,12 +7,13 @@ Intent for opening a new activity
 */
 
 import android.content.Intent;
-/* APP Compact Activity for supporting old apps designed. */
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-/* View for support the view component for the click event */
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+/* APP Compact Activity for supporting old apps designed. */
+/* View for support the view component for the click event */
 
 /* class where start the APP * / */
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Creating a new intent into Main Activity related to the new class and starting it
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                //colorsIntent.putExtra("test","Jorge Augusto Peroza Molina");
                 startActivity(colorsIntent);
             }
         });

@@ -56,9 +56,7 @@ public class ColorsActivity extends AppCompatActivity {
         OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast of example
-                //Toast toast = Toast.makeText(ColorsActivity.this, colorsWords.get(position).toString(), Toast.LENGTH_SHORT);
-                //toast.show();
+
 
                 releaseMediaPlayer();
                 //Playing the audio file
@@ -70,6 +68,10 @@ public class ColorsActivity extends AppCompatActivity {
         };
 
         listView.setOnItemClickListener(mMessageClickedHandler);
+
+        //Toast of example
+        //Toast toast = Toast.makeText(ColorsActivity.this, getIntent().getStringExtra("test"), Toast.LENGTH_SHORT);
+        //toast.show();
 
     }
 
