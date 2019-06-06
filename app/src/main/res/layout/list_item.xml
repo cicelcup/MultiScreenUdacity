@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:minHeight="@dimen/list_item_height">
+    android:minHeight="@dimen/list_item_height"
+    android:orientation="horizontal">
 
     <!--Using the resources of dimensions and color-->
     <ImageView
@@ -16,7 +16,7 @@
     <!--A vertical layout with the two words styled with words position-->
     <LinearLayout
         android:id="@+id/text_container"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="16dp">
@@ -24,15 +24,27 @@
         <TextView
             android:id="@+id/miwok_word_view"
             style="@style/words_position"
-            android:textStyle="bold"
             android:gravity="bottom"
+            android:textStyle="bold"
             tools:text="lutti" />
 
         <TextView
             android:id="@+id/default_word_view"
-            tools:text="one"
+            style="@style/words_position"
             android:layout_gravity="top"
-            style="@style/words_position" />
-
+            tools:text="one" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height">
+
+        <ImageView
+            android:layout_width="@dimen/arrow_width"
+            android:layout_height="@dimen/arrow_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/baseline_play_arrow_white_24" />
+    </RelativeLayout>
 </LinearLayout>

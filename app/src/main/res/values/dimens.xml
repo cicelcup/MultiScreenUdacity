@@ -2,4 +2,6 @@
     <!-- Height of each list item -->
     <dimen name="list_item_height">88dp</dimen>
     <dimen name="list_item_width">88dp</dimen>
+    <dimen name="arrow_width">24dp</dimen>
+    <dimen name="arrow_height">24dp</dimen>
 </resources>
