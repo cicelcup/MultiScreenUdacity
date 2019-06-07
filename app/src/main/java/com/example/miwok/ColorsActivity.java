@@ -59,7 +59,7 @@ public class ColorsActivity extends AppCompatActivity {
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //Array list where is store the words in english, mitowk, with the image to display and the sound of the file
-        final ArrayList<Word> colorsWords = new ArrayList<Word>();
+        final ArrayList<Word> colorsWords = new ArrayList<>();
 
         colorsWords.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
         colorsWords.add(new Word(getString(R.string.mustard_yellow), "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
@@ -89,7 +89,7 @@ public class ColorsActivity extends AppCompatActivity {
 
                 //Playing the audio file
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPLayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getmSound());
+                    mMediaPLayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getSound());
                     mMediaPLayer.start();
                     mMediaPLayer.setOnCompletionListener(onCompletionListener);
                 }

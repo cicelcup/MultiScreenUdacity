@@ -16,8 +16,8 @@ import java.util.ArrayList;
 /*public class as an extension of the array adapter*/
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    //Constructor with two atributes, one for the contest and another one with the list of words...
-    public WordAdapter(Context context, ArrayList<Word> listOfWords) {
+    //Constructor with two attributes, one for the contest and another one with the list of words...
+    WordAdapter(Context context, ArrayList<Word> listOfWords) {
         super(context, 0, listOfWords); //Initialing the constructor of three parameters
     }
 
@@ -27,7 +27,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         View currentView = convertView;
 
-        if (currentView == null) { //inflating the layout if the currentview is null
+        if (currentView == null) { //inflating the layout if the current view is null
             //Inflating the list_item view
             currentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
@@ -61,18 +61,18 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word currentWord = getItem(position);
 
         //setting the miwok word
-        TextView miwokWord = (TextView) currentView.findViewById(R.id.miwok_word_view);
-        miwokWord.setText(currentWord.getmMiwokWord());
+        TextView miwokWord = currentView.findViewById(R.id.miwok_word_view);
+        miwokWord.setText(currentWord.getMiwokWord());
 
         //setting the english word
-        TextView defaultWord = (TextView) currentView.findViewById(R.id.default_word_view);
-        defaultWord.setText(currentWord.getmDefaultWord());
+        TextView defaultWord = currentView.findViewById(R.id.default_word_view);
+        defaultWord.setText(currentWord.getDefaultWord());
 
         //setting the image... If it's false that means there's not image into the constructor
-        ImageView imageView = (ImageView) currentView.findViewById(R.id.imageWords);
+        ImageView imageView = currentView.findViewById(R.id.imageWords);
 
-        if (currentWord.hasImage() != false) {
-            imageView.setImageResource(currentWord.getmImageResourceId());
+        if (currentWord.hasImage()) {
+            imageView.setImageResource(currentWord.getImageResourceId());
             imageView.setVisibility(View.VISIBLE);
         } else {
             imageView.setVisibility(View.GONE);

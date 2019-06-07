@@ -1,8 +1,8 @@
-/*Word class for storage the words in English, Mitow and its corresponding image*/
+/*Word class for storage the words in English, miwok and its corresponding image*/
 package com.example.miwok;
 
-public class Word {
-    //Atributes established
+class Word {
+    //Attributes established
     private String mMiwokWord;
     private String mDefaultWord;
     private int mSound;
@@ -11,7 +11,7 @@ public class Word {
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
     //Constructor with four parameters
-    public Word(String mDefaultWord, String mMiwokWord, int mImage, int mSound) {
+    Word(String mDefaultWord, String mMiwokWord, int mImage, int mSound) {
         this.mMiwokWord = mMiwokWord;
         this.mDefaultWord = mDefaultWord;
         this.mImageResourceId = mImage;
@@ -19,35 +19,35 @@ public class Word {
     }
 
     //Constructor with three parameters
-    public Word(String mDefaultWord, String mMiwokWord, int mSound) {
+    Word(String mDefaultWord, String mMiwokWord, int mSound) {
         this.mMiwokWord = mMiwokWord;
         this.mDefaultWord = mDefaultWord;
         this.mSound = mSound;
     }
 
     //Getters of the variables
-    public String getmDefaultWord() {
+    String getDefaultWord() {
         return mDefaultWord;
     }
 
-    public String getmMiwokWord() {
+    String getMiwokWord() {
         return mMiwokWord;
     }
 
-    public int getmImageResourceId() {
+    int getImageResourceId() {
         return mImageResourceId;
     }
 
-    public int getmSound() {
+    int getSound() {
         return mSound;
     }
 
     //method to define if the word class has an image associated or not
-    public boolean hasImage() {
+    boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 
-    //method to String for testing the attributes from a class
+    /*method to String for testing the attributes from a class
     @Override
     public String toString() {
         return "Word{" +
@@ -57,4 +57,5 @@ public class Word {
                 ", mSound=" + mSound +
                 '}';
     }
+    */
 }

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Creating a new intent into Main Activity related to the new class and starting it
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
-                //colorsIntent.putExtra("test","Jorge Augusto Peroza Molina");
+                //colorsIntent.putExtra("test","Jorge Augusto");
                 startActivity(colorsIntent);
             }
         });

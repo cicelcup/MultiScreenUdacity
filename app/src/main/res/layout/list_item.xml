@@ -11,7 +11,8 @@
         android:id="@+id/imageWords"
         android:layout_width="@dimen/list_item_width"
         android:layout_height="@dimen/list_item_height"
-        android:background="@color/tan_background" />
+        android:background="@color/tan_background"
+        android:contentDescription="@string/image_item" />
 
     <!--A vertical layout with the two words styled with words position-->
     <LinearLayout
@@ -19,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:paddingStart="16dp"
+        tools:ignore="RtlSymmetry">
 
         <TextView
             android:id="@+id/miwok_word_view"
@@ -43,9 +45,10 @@
         <ImageView
             android:layout_width="@dimen/arrow_width"
             android:layout_height="@dimen/arrow_height"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/play_icon"
             android:src="@drawable/baseline_play_arrow_white_24" />
     </RelativeLayout>
 </LinearLayout>

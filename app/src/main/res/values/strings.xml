@@ -47,7 +47,7 @@
 
     <string name="where_are_you_going">where are you going?</string>
     <string name="what_is_your_name">what is your name?</string>
-    <string name="my_name_is">my name is...</string>
+    <string name="my_name_is">my name is…</string>
     <string name="how_are_you_feeling">how are you feeling?</string>
     <string name="i_m_feeling_good">I’m feeling good</string>
     <string name="are_you_coming">are you coming?</string>
@@ -55,6 +55,9 @@
     <string name="i_m_coming">I’m coming</string>
     <string name="let_s_go">let’s go</string>
     <string name="come_here">come here</string>
+
+    <string name="play_icon">Play Icon</string>
+    <string name="image_item">Image for the item</string>
 
 
 </resources>

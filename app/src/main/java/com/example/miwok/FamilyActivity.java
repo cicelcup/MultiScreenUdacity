@@ -56,7 +56,7 @@ public class FamilyActivity extends AppCompatActivity {
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //Array list where is store the words in english, mitowk, the image to display and the audio
-        final ArrayList<Word> familyWords = new ArrayList<Word>();
+        final ArrayList<Word> familyWords = new ArrayList<>();
 
         familyWords.add(new Word(getString(R.string.father), "әpә", R.drawable.family_father, R.raw.family_father));
         familyWords.add(new Word(getString(R.string.mother), "әṭa", R.drawable.family_mother, R.raw.family_mother));
@@ -88,7 +88,7 @@ public class FamilyActivity extends AppCompatActivity {
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     //Playing the file
-                    mMediaPLayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getmSound());
+                    mMediaPLayer = MediaPlayer.create(FamilyActivity.this, familyWords.get(position).getSound());
                     mMediaPLayer.start();
 
                     mMediaPLayer.setOnCompletionListener(onCompletionListener);

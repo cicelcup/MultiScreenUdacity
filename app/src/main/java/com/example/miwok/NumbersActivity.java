@@ -41,7 +41,7 @@ public class NumbersActivity extends AppCompatActivity {
         }
     };
 
-    //listening the completation of the audio file
+    //listening the completion of the audio file
     private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -59,7 +59,7 @@ public class NumbersActivity extends AppCompatActivity {
         //getting the audio from the system
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        //testing the Log class with an array and a foor loop
+        //testing the Log class with an array and a for loop
         String[] array = new String[2];
         int size = array.length;
 
@@ -70,7 +70,7 @@ public class NumbersActivity extends AppCompatActivity {
 
 
         //Array list where is store the words in english, mitowk, the image to display and the sound
-        final ArrayList<Word> numbersWords = new ArrayList<Word>();
+        final ArrayList<Word> numbersWords = new ArrayList<>();
         numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one, R.raw.number_one));
         numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two, R.raw.number_two));
         numbersWords.add(new Word(getString(R.string.three), "tolookosu", R.drawable.number_three, R.raw.number_three));
@@ -86,7 +86,7 @@ public class NumbersActivity extends AppCompatActivity {
         WordAdapter itemsAdapter = new WordAdapter(this,numbersWords);
 
         //List view where is stored the adapter
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
         //Creating the onclick method
@@ -101,7 +101,7 @@ public class NumbersActivity extends AppCompatActivity {
                 //getting the audio focus
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     //playing the file
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getmSound());
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getSound());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(onCompletionListener);
@@ -114,7 +114,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     }
 
-    /*Overring the stop method*/
+    /*Overriding the stop method*/
     @Override
     protected void onStop() {
         super.onStop();

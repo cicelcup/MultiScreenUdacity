@@ -57,8 +57,8 @@ public class PhrasesActivity extends AppCompatActivity {
         //Setting the audio manager
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        //Array list where is store the words in english, mitow word and audio
-        final ArrayList<Word> phrasesWords = new ArrayList<Word>();
+        //Array list where is store the words in english, Miwok word and audio
+        final ArrayList<Word> phrasesWords = new ArrayList<>();
         phrasesWords.add(new Word(getString(R.string.where_are_you_going), "minto wuksus", R.raw.phrase_where_are_you_going));
         phrasesWords.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
         phrasesWords.add(new Word(getString(R.string.my_name_is), "oyaaset...", R.raw.phrase_my_name_is));
@@ -88,7 +88,7 @@ public class PhrasesActivity extends AppCompatActivity {
 
                 //gain the audio focus
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getmSound());
+                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getSound());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(onCompletionListener);
