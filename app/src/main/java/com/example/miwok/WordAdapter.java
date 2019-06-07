@@ -16,12 +16,12 @@ import java.util.ArrayList;
 /*public class as an extension of the array adapter*/
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    //Constructor with two attributes, one for the contest and another one with the list of words...
+    //Constructor with two attributes, one for the contest and another one with the list of words.
     WordAdapter(Context context, ArrayList<Word> listOfWords) {
         super(context, 0, listOfWords); //Initialing the constructor of three parameters
     }
 
-    //Overriding the get view method. Included position of the item, the current view and the parent
+    //Overriding the get view method. Including item's position, the current view and the parent
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -29,7 +29,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         if (currentView == null) { //inflating the layout if the current view is null
             //Inflating the list_item view
-            currentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            currentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent,
+                    false);
         }
 
         //which class is calling the WordAdapter required for setting the color of the layout
@@ -37,19 +38,23 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         switch (whichClass) {
             case "ColorsActivity":
-                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_colors));
+                currentView.setBackgroundColor(getContext().getResources().getColor
+                        (R.color.category_colors));
                 break;
 
             case "FamilyActivity":
-                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_family));
+                currentView.setBackgroundColor(getContext().getResources().getColor
+                        (R.color.category_family));
                 break;
 
             case "NumbersActivity":
-                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_numbers));
+                currentView.setBackgroundColor(getContext().getResources().getColor
+                        (R.color.category_numbers));
                 break;
 
             case "PhrasesActivity":
-                currentView.setBackgroundColor(getContext().getResources().getColor(R.color.category_phrases));
+                currentView.setBackgroundColor(getContext().getResources().getColor
+                        (R.color.category_phrases));
                 break;
 
             default:

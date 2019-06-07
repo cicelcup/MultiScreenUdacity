@@ -27,7 +27,8 @@ public class ColorsActivity extends AppCompatActivity {
         @Override
         public void onAudioFocusChange(int focusChange) {
             //Lost the audio for a short time
-            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPLayer.pause();
                 mMediaPLayer.seekTo(0); //restarting the audio
                 //Gain the audio from the system
@@ -41,7 +42,8 @@ public class ColorsActivity extends AppCompatActivity {
     };
 
     //Listening the audio to know when it finish
-    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+    private MediaPlayer.OnCompletionListener onCompletionListener =
+            new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
             releaseMediaPlayer();
@@ -58,19 +60,29 @@ public class ColorsActivity extends AppCompatActivity {
         //Audio Manager initiating requesting the audio system
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        //Array list where is store the words in english, mitowk, with the image to display and the sound of the file
+        /*Array list where is store the words in english, mitowk, with the image to display and
+        the sound of the file*/
         final ArrayList<Word> colorsWords = new ArrayList<>();
 
-        colorsWords.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
-        colorsWords.add(new Word(getString(R.string.mustard_yellow), "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
-        colorsWords.add(new Word(getString(R.string.dusty_yellow), "ṭopiisә", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
-        colorsWords.add(new Word(getString(R.string.green), "chokokki", R.drawable.color_green, R.raw.color_green));
-        colorsWords.add(new Word(getString(R.string.brown), "ṭakaakki", R.drawable.color_brown, R.raw.color_brown));
-        colorsWords.add(new Word(getString(R.string.gray), "ṭopoppi", R.drawable.color_gray, R.raw.color_gray));
-        colorsWords.add(new Word(getString(R.string.black), "kululli", R.drawable.color_black, R.raw.color_black));
-        colorsWords.add(new Word(getString(R.string.white), "kelelli", R.drawable.color_white, R.raw.color_white));
+        colorsWords.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red,
+                R.raw.color_red));
+        colorsWords.add(new Word(getString(R.string.mustard_yellow), "chiwiiṭә",
+                R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
+        colorsWords.add(new Word(getString(R.string.dusty_yellow), "ṭopiisә",
+                R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
+        colorsWords.add(new Word(getString(R.string.green), "chokokki", R.drawable.color_green,
+                R.raw.color_green));
+        colorsWords.add(new Word(getString(R.string.brown), "ṭakaakki", R.drawable.color_brown,
+                R.raw.color_brown));
+        colorsWords.add(new Word(getString(R.string.gray), "ṭopoppi", R.drawable.color_gray,
+                R.raw.color_gray));
+        colorsWords.add(new Word(getString(R.string.black), "kululli", R.drawable.color_black,
+                R.raw.color_black));
+        colorsWords.add(new Word(getString(R.string.white), "kelelli", R.drawable.color_white,
+                R.raw.color_white));
 
-        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
+        /*work adapter to inflate the layout customize
+        This allows to recycle the view improving the performance*/
         WordAdapter itemsAdapter = new WordAdapter(this, colorsWords);
 
         //List view where is stored the adapter
@@ -85,11 +97,13 @@ public class ColorsActivity extends AppCompatActivity {
                 releaseMediaPlayer(); //releasing the audio
 
                 //Requesting the audio file
-                int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                int result = mAudioManager.requestAudioFocus(afChangeListener,
+                        AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 //Playing the audio file
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPLayer = MediaPlayer.create(ColorsActivity.this, colorsWords.get(position).getSound());
+                    mMediaPLayer = MediaPlayer.create(ColorsActivity.this,
+                            colorsWords.get(position).getSound());
                     mMediaPLayer.start();
                     mMediaPLayer.setOnCompletionListener(onCompletionListener);
                 }
@@ -101,7 +115,8 @@ public class ColorsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(mMessageClickedHandler);
 
         //Toast of example
-        //Toast toast = Toast.makeText(ColorsActivity.this, getIntent().getStringExtra("test"), Toast.LENGTH_SHORT);
+        //Toast toast = Toast.makeText(ColorsActivity.this, getIntent().getStringExtra("test"),
+        // Toast.LENGTH_SHORT);
         //toast.show();
 
     }

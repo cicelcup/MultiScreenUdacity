@@ -28,26 +28,29 @@ public class MainActivity extends AppCompatActivity {
         //Text view for colors. It's need it for creating the click event
         TextView colorsView = findViewById(R.id.colors);
 
-        //Setting the click listener overriding the onclick listener of view object (looking it into the layout)
+        /*Setting the click listener overriding the onclick listener of view
+        object (looking it into the layout)*/
         colorsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Creating a new intent into Main Activity related to the new class and starting it
-                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                Intent colorsIntent = new Intent(MainActivity.this,
+                        ColorsActivity.class);
                 //colorsIntent.putExtra("test","Jorge Augusto");
                 startActivity(colorsIntent);
             }
         });
 
 
-        //Text view for family. It's need it for creating the click event (looking it into the layout)
+        //Text view for family for creating the click event (looking it into the layout)
         TextView familyView = findViewById(R.id.family);
 
         //Setting the click listener overriding the onclick listener of view object
         familyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent familyIntent = new Intent(MainActivity.this,FamilyActivity.class);
+                Intent familyIntent = new Intent(MainActivity.this,
+                        FamilyActivity.class);
                 startActivity(familyIntent);
             }
         });
@@ -59,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         numbersView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent numbersIntent = new Intent(MainActivity.this,NumbersActivity.class);
+                Intent numbersIntent = new Intent(MainActivity.this,
+                        NumbersActivity.class);
                 startActivity(numbersIntent);
             }
         });
@@ -72,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
         phrasesView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent phrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
+                Intent phrasesIntent = new Intent(MainActivity.this,
+                        PhrasesActivity.class);
                 startActivity(phrasesIntent);
             }
         });

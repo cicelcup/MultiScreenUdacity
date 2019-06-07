@@ -28,7 +28,8 @@ public class NumbersActivity extends AppCompatActivity {
         @Override
         public void onAudioFocusChange(int focusChange) {
             //losing the audio for a short time
-            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
                 //gain the audio
@@ -69,20 +70,31 @@ public class NumbersActivity extends AppCompatActivity {
         }
 
 
-        //Array list where is store the words in english, mitowk, the image to display and the sound
+        //Array list where are the words in english, mitowk, the image to display and the sound
         final ArrayList<Word> numbersWords = new ArrayList<>();
-        numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one, R.raw.number_one));
-        numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two, R.raw.number_two));
-        numbersWords.add(new Word(getString(R.string.three), "tolookosu", R.drawable.number_three, R.raw.number_three));
-        numbersWords.add(new Word(getString(R.string.four), "oyyisa", R.drawable.number_four, R.raw.number_four));
-        numbersWords.add(new Word(getString(R.string.five), "massokka", R.drawable.number_five, R.raw.number_five));
-        numbersWords.add(new Word(getString(R.string.six), "temmokka", R.drawable.number_six, R.raw.number_six));
-        numbersWords.add(new Word(getString(R.string.seven), "kenekaku", R.drawable.number_seven, R.raw.number_seven));
-        numbersWords.add(new Word(getString(R.string.eight), "kawinta", R.drawable.number_eight, R.raw.number_eight));
-        numbersWords.add(new Word(getString(R.string.nine), "wo’e", R.drawable.number_nine, R.raw.number_nine));
-        numbersWords.add(new Word(getString(R.string.ten), "na’aacha", R.drawable.number_ten, R.raw.number_ten));
+        numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one,
+                R.raw.number_one));
+        numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two,
+                R.raw.number_two));
+        numbersWords.add(new Word(getString(R.string.three), "tolookosu", R.drawable.number_three,
+                R.raw.number_three));
+        numbersWords.add(new Word(getString(R.string.four), "oyyisa", R.drawable.number_four,
+                R.raw.number_four));
+        numbersWords.add(new Word(getString(R.string.five), "massokka",
+                R.drawable.number_five, R.raw.number_five));
+        numbersWords.add(new Word(getString(R.string.six), "temmokka", R.drawable.number_six,
+                R.raw.number_six));
+        numbersWords.add(new Word(getString(R.string.seven), "kenekaku", R.drawable.number_seven,
+                R.raw.number_seven));
+        numbersWords.add(new Word(getString(R.string.eight), "kawinta", R.drawable.number_eight,
+                R.raw.number_eight));
+        numbersWords.add(new Word(getString(R.string.nine), "wo’e", R.drawable.number_nine,
+                R.raw.number_nine));
+        numbersWords.add(new Word(getString(R.string.ten), "na’aacha", R.drawable.number_ten,
+                R.raw.number_ten));
 
-        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
+        /*work adapter to inflate the layout customize.
+        This allows to recycle the view improving the performance*/
         WordAdapter itemsAdapter = new WordAdapter(this,numbersWords);
 
         //List view where is stored the adapter
@@ -90,18 +102,21 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setAdapter(itemsAdapter);
 
         //Creating the onclick method
-        AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
+        AdapterView.OnItemClickListener mMessageClickedHandler =
+                new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 releaseMediaPlayer(); //releasing the audio file
 
-                int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                int result = mAudioManager.requestAudioFocus(afChangeListener,
+                        AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 //getting the audio focus
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     //playing the file
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getSound());
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this,
+                            numbersWords.get(position).getSound());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(onCompletionListener);

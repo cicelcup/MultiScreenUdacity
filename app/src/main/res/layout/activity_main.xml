@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--Layout for the first activity-->
 
-<!--Linear layout for order the text in a vertical orientation. Use the color attribute for background-->
+<!--Linear layout for order the text in a vertical orientation.
+Use the color attribute for background-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +10,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!--FrameLayout with a Text view for the numbers category, using the category style and the reference for text&color-->
+    <!--FrameLayout with a Text view for the numbers category, using the category style and
+    the reference for text&color-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +23,8 @@
             android:text="@string/category_numbers" />
     </FrameLayout>
 
-    <!--FrameLayout with a  Text view for the family category, using the category style and the reference for text&color-->
+    <!--FrameLayout with a  Text view for the family category, using the category style and
+    the reference for text&color-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +36,8 @@
             android:text="@string/category_family" />
     </FrameLayout>
 
-    <!--FrameLayout with a Text view for the colors category, using the category style and the reference for text&color-->
+    <!--FrameLayout with a Text view for the colors category, using the category style and
+    the reference for text&color-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +49,8 @@
             android:text="@string/category_colors" />
     </FrameLayout>
 
-    <!--FrameLayout with a Text view for the phrases category, using the category style and the reference for text&color-->
+    <!--FrameLayout with a Text view for the phrases category, using the category style and
+    the reference for text&color-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

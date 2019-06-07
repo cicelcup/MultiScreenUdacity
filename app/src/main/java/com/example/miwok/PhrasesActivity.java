@@ -13,8 +13,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-//Libraries for the list view that shows the words and the array list for the storage of the information
-
 //Extension of the app compact activity
 public class PhrasesActivity extends AppCompatActivity {
 
@@ -26,7 +24,8 @@ public class PhrasesActivity extends AppCompatActivity {
         @Override
         public void onAudioFocusChange(int focusChange) {
             //losing the audio for a short time
-            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
                 //gain the audio
@@ -59,18 +58,29 @@ public class PhrasesActivity extends AppCompatActivity {
 
         //Array list where is store the words in english, Miwok word and audio
         final ArrayList<Word> phrasesWords = new ArrayList<>();
-        phrasesWords.add(new Word(getString(R.string.where_are_you_going), "minto wuksus", R.raw.phrase_where_are_you_going));
-        phrasesWords.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
-        phrasesWords.add(new Word(getString(R.string.my_name_is), "oyaaset...", R.raw.phrase_my_name_is));
-        phrasesWords.add(new Word(getString(R.string.how_are_you_feeling), "michәksәs?", R.raw.phrase_how_are_you_feeling));
-        phrasesWords.add(new Word(getString(R.string.i_m_feeling_good), "kuchi achit", R.raw.phrase_im_feeling_good));
-        phrasesWords.add(new Word(getString(R.string.are_you_coming), "әәnәs'aa?", R.raw.phrase_are_you_coming));
-        phrasesWords.add(new Word(getString(R.string.yes_I_m_coming), "hәә’ әәnәm", R.raw.phrase_yes_im_coming));
-        phrasesWords.add(new Word(getString(R.string.i_m_coming), "әәnәm", R.raw.phrase_im_coming));
-        phrasesWords.add(new Word(getString(R.string.let_s_go), "yoowutis", R.raw.phrase_lets_go));
-        phrasesWords.add(new Word(getString(R.string.come_here), "әnni'nem", R.raw.phrase_come_here));
+        phrasesWords.add(new Word(getString(R.string.where_are_you_going), "minto wuksus",
+                R.raw.phrase_where_are_you_going));
+        phrasesWords.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә",
+                R.raw.phrase_what_is_your_name));
+        phrasesWords.add(new Word(getString(R.string.my_name_is), "oyaaset...",
+                R.raw.phrase_my_name_is));
+        phrasesWords.add(new Word(getString(R.string.how_are_you_feeling), "michәksәs?",
+                R.raw.phrase_how_are_you_feeling));
+        phrasesWords.add(new Word(getString(R.string.i_m_feeling_good), "kuchi achit",
+                R.raw.phrase_im_feeling_good));
+        phrasesWords.add(new Word(getString(R.string.are_you_coming), "әәnәs'aa?",
+                R.raw.phrase_are_you_coming));
+        phrasesWords.add(new Word(getString(R.string.yes_I_m_coming), "hәә’ әәnәm",
+                R.raw.phrase_yes_im_coming));
+        phrasesWords.add(new Word(getString(R.string.i_m_coming), "әәnәm",
+                R.raw.phrase_im_coming));
+        phrasesWords.add(new Word(getString(R.string.let_s_go), "yoowutis",
+                R.raw.phrase_lets_go));
+        phrasesWords.add(new Word(getString(R.string.come_here), "әnni'nem",
+                R.raw.phrase_come_here));
 
-        //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
+        /*work adapter to inflate the layout customize.
+        This allows to recycle the view improving the performance*/
         WordAdapter itemsAdapter = new WordAdapter(this, phrasesWords);
 
         //List view where is stored the adapter
@@ -84,11 +94,13 @@ public class PhrasesActivity extends AppCompatActivity {
 
                 releaseMediaPlayer();
                 //requesting the audio focus
-                int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                int result = mAudioManager.requestAudioFocus(afChangeListener,
+                        AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 //gain the audio focus
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getSound());
+                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this,
+                            phrasesWords.get(position).getSound());
                     mMediaPlayer.start();
 
                     mMediaPlayer.setOnCompletionListener(onCompletionListener);

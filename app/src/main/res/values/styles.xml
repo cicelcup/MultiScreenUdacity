@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
-    <!--Category style with match parent in width, list_item in height, center vertical, with padding,
+    <!--Category style with match parent in width, list_item in height, center vertical, padding,
     white letters and applying the animation click styled-->
     <style name="CategoryStyle">
         <item name="android:layout_width">match_parent</item>
