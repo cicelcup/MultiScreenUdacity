@@ -1,5 +1,6 @@
 /*package of the app*/
 package com.example.miwok;
+/*Libraries imported*/
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -12,28 +13,31 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-//Libraries for the list view that shows the words and the array list for the storage of the information
-
 //Extension of the app compact activity
 public class FamilyActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPLayer; //MediaPlayer Component
-    private AudioManager mAudioManager;
+    private AudioManager mAudioManager; //Audio Manager for requesting audio
 
+    //Listening the audio from the system
     AudioManager.OnAudioFocusChangeListener afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
+            //Lost audio in a short time
             if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPLayer.pause();
                 mMediaPLayer.seekTo(0);
+                //Gain the audio
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPLayer.start();
+                //complete lost the audio
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             }
         }
     };
 
+    //Listening the audio to see when it's completed
     private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -48,9 +52,10 @@ public class FamilyActivity extends AppCompatActivity {
         //layout to open
         setContentView(R.layout.words);
 
+        //setting the audio manager of the system
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        //Array list where is store the words in english, mitowk and with the image to display
+        //Array list where is store the words in english, mitowk, the image to display and the audio
         final ArrayList<Word> familyWords = new ArrayList<Word>();
 
         familyWords.add(new Word(getString(R.string.father), "әpә", R.drawable.family_father, R.raw.family_father));
@@ -76,8 +81,9 @@ public class FamilyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                releaseMediaPlayer();
+                releaseMediaPlayer(); //releasing the audio resources
 
+                //requesting the audio of the system
                 int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
@@ -94,6 +100,7 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setOnItemClickListener(mMessageClickedHandler);
     }
 
+    //overriding the stop event
     @Override
     protected void onStop() {
         super.onStop();

@@ -1,6 +1,8 @@
 /*package of the app*/
 package com.example.miwok;
 
+/*Libraries imported*/
+
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -13,30 +15,33 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-//Libraries for the list view that shows the words and the array list for the storage of the information
-
 //Extension of the app compact activity
 public class NumbersActivity extends AppCompatActivity {
 
+    //Getting the name of the activity for using for the log (testing uses)
     private static final String LOG_TAG = NumbersActivity.class.getSimpleName();
-    private MediaPlayer mMediaPlayer;
-    private AudioManager mAudioManager;
+    private MediaPlayer mMediaPlayer; //media player variable
+    private AudioManager mAudioManager; //Audio Manager from the system
 
+    //Listening the audio system
     AudioManager.OnAudioFocusChangeListener afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
+            //losing the audio for a short time
             if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
+                //gain the audio
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPlayer.start();
+                //losing the audio and releasing the file
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             }
         }
     };
 
-
+    //listening the completation of the audio file
     private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -51,10 +56,11 @@ public class NumbersActivity extends AppCompatActivity {
         //layout to open
         setContentView(R.layout.words);
 
+        //getting the audio from the system
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //testing the Log class with an array and a foor loop
-        String[] array = new String[3];
+        String[] array = new String[2];
         int size = array.length;
 
         for (int index = 0; index < size; index++) {
@@ -63,7 +69,7 @@ public class NumbersActivity extends AppCompatActivity {
         }
 
 
-        //Array list where is store the words in english, mitowk and with the image to display
+        //Array list where is store the words in english, mitowk, the image to display and the sound
         final ArrayList<Word> numbersWords = new ArrayList<Word>();
         numbersWords.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one, R.raw.number_one));
         numbersWords.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two, R.raw.number_two));
@@ -75,7 +81,6 @@ public class NumbersActivity extends AppCompatActivity {
         numbersWords.add(new Word(getString(R.string.eight), "kawinta", R.drawable.number_eight, R.raw.number_eight));
         numbersWords.add(new Word(getString(R.string.nine), "wo’e", R.drawable.number_nine, R.raw.number_nine));
         numbersWords.add(new Word(getString(R.string.ten), "na’aacha", R.drawable.number_ten, R.raw.number_ten));
-
 
         //work adapter to inflate the layout customize.. This allows to recycle the view improving the performance
         WordAdapter itemsAdapter = new WordAdapter(this,numbersWords);
@@ -89,10 +94,11 @@ public class NumbersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                releaseMediaPlayer();
+                releaseMediaPlayer(); //releasing the audio file
 
                 int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
+                //getting the audio focus
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     //playing the file
                     mMediaPlayer = MediaPlayer.create(NumbersActivity.this, numbersWords.get(position).getmSound());
@@ -108,6 +114,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     }
 
+    /*Overring the stop method*/
     @Override
     protected void onStop() {
         super.onStop();
@@ -130,7 +137,7 @@ public class NumbersActivity extends AppCompatActivity {
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
 
-            mAudioManager.abandonAudioFocus(afChangeListener);
+            mAudioManager.abandonAudioFocus(afChangeListener);//releasing the system's audio
         }
     }
 

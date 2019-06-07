@@ -35,6 +35,7 @@
             tools:text="one" />
     </LinearLayout>
 
+    <!--A relative layout to position the image at the end of the file-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height">

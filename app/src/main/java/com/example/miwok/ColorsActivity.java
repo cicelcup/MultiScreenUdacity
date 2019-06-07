@@ -1,6 +1,8 @@
 /*package of the app*/
 package com.example.miwok;
 
+/*Libraries Imported*/
+
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -14,28 +16,31 @@ import java.util.ArrayList;
 
 import static android.widget.AdapterView.OnItemClickListener;
 
-//Libraries for the list view that shows the words and the array list for the storage of the information
-
 //Extension of the app compact activity
 public class ColorsActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPLayer; //MediaPlayer Component
-    private AudioManager mAudioManager;
+    private AudioManager mAudioManager; //AudioManager to request the focus of the audio
 
+    /*OnAudio Focus Manager need it to request the audio from the system*/
     AudioManager.OnAudioFocusChangeListener afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
+            //Lost the audio for a short time
             if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPLayer.pause();
-                mMediaPLayer.seekTo(0);
+                mMediaPLayer.seekTo(0); //restarting the audio
+                //Gain the audio from the system
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPLayer.start();
+                //complete lost the focus
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             }
         }
     };
 
+    //Listening the audio to know when it finish
     private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -50,9 +55,10 @@ public class ColorsActivity extends AppCompatActivity {
         //layout to open
         setContentView(R.layout.words);
 
+        //Audio Manager initiating requesting the audio system
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        //Array list where is store the words in english, mitowk and with the image to display
+        //Array list where is store the words in english, mitowk, with the image to display and the sound of the file
         final ArrayList<Word> colorsWords = new ArrayList<Word>();
 
         colorsWords.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
@@ -72,14 +78,13 @@ public class ColorsActivity extends AppCompatActivity {
         listView.setAdapter(itemsAdapter);
 
         //Creating the onclick item for handling the click action
-
         OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                releaseMediaPlayer(); //releasing the audio
 
-                releaseMediaPlayer();
-
+                //Requesting the audio file
                 int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 //Playing the audio file
@@ -101,6 +106,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     }
 
+    //code when the activity Stop
     @Override
     protected void onStop() {
         super.onStop();
@@ -123,7 +129,7 @@ public class ColorsActivity extends AppCompatActivity {
             // is not configured to play an audio file at the moment.
             mMediaPLayer = null;
 
-            mAudioManager.abandonAudioFocus(afChangeListener);
+            mAudioManager.abandonAudioFocus(afChangeListener); //releasing the audio focus
         }
     }
 }

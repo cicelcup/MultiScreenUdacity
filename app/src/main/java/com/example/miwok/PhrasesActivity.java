@@ -1,5 +1,6 @@
 /*package of the app*/
 package com.example.miwok;
+/*Libraries imported*/
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -18,21 +19,27 @@ import java.util.ArrayList;
 public class PhrasesActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer; //media for play the files
-    private AudioManager mAudioManager;
+    private AudioManager mAudioManager; //Audio manager from the system
+
+    //Listening the audio system
     AudioManager.OnAudioFocusChangeListener afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
+            //losing the audio for a short time
             if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
+                //gain the audio
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 mMediaPlayer.start();
+                //losing the audio
             } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                 releaseMediaPlayer();
             }
         }
     };
 
+    //Listening to the audio to finish
     private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -47,9 +54,10 @@ public class PhrasesActivity extends AppCompatActivity {
         //layout to open
         setContentView(R.layout.words);
 
+        //Setting the audio manager
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        //Array list where is store the words in english and mitow
+        //Array list where is store the words in english, mitow word and audio
         final ArrayList<Word> phrasesWords = new ArrayList<Word>();
         phrasesWords.add(new Word(getString(R.string.where_are_you_going), "minto wuksus", R.raw.phrase_where_are_you_going));
         phrasesWords.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
@@ -69,14 +77,16 @@ public class PhrasesActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
+        //Setting the listener of the click item
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 releaseMediaPlayer();
-
+                //requesting the audio focus
                 int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
+                //gain the audio focus
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                     mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, phrasesWords.get(position).getmSound());
                     mMediaPlayer.start();
@@ -110,7 +120,7 @@ public class PhrasesActivity extends AppCompatActivity {
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
 
-            mAudioManager.abandonAudioFocus(afChangeListener);
+            mAudioManager.abandonAudioFocus(afChangeListener);//releasing the audio focus
         }
     }
 

@@ -2,7 +2,7 @@
 
 package com.example.miwok; //package of the project
 
-//libraries need it
+//libraries imported
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
