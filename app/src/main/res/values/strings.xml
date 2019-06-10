@@ -59,5 +59,8 @@
     <string name="play_icon">Play Icon</string>
     <string name="image_item">Image for the item</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
