@@ -95,7 +95,8 @@ public class NumbersFragment extends Fragment {
 
         /*work adapter to inflate the layout customize.
         This allows to recycle the view improving the performance*/
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), numbersWords);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), numbersWords,
+                WordAdapter.BACKGROUND_NUMBERS);
 
         //List view where is stored the adapter
         ListView listView = rootView.findViewById(R.id.list);

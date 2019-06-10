@@ -94,7 +94,8 @@ public class FamilyFragment extends Fragment {
 
         /*work adapter to inflate the layout customize..
         This allows to recycle the view improving the performance*/
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), familyWords);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), familyWords,
+                WordAdapter.BACKGROUND_FAMILY);
 
         //List view where is stored the adapter
         ListView listView = rootView.findViewById(R.id.list);

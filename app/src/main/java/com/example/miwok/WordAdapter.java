@@ -4,7 +4,6 @@ package com.example.miwok; //package of the project
 
 //libraries imported
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,18 @@ import java.util.ArrayList;
 /*public class as an extension of the array adapter*/
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    //Constructor with two attributes, one for the contest and another one with the list of words.
-    WordAdapter(Context context, ArrayList<Word> listOfWords) {
+    //Color Constants
+    public static final int BACKGROUND_COLORS = 1;
+    public static final int BACKGROUND_FAMILY = 2;
+    public static final int BACKGROUND_NUMBERS = 3;
+    public static final int BACKGROUND_PHRASES = 4;
+    /*Constructor with three attributes, one for the context, another one with the list of words.
+    and the color of the activity*/
+    private int mColorBackground;
+
+    WordAdapter(Context context, ArrayList<Word> listOfWords, int color) {
         super(context, 0, listOfWords); //Initialing the constructor of three parameters
+        mColorBackground = color;
     }
 
     //Overriding the get view method. Including item's position, the current view and the parent
@@ -34,29 +42,26 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     false);
         }
 
-        //which class is calling the WordAdapter required for setting the color of the layout
-        String whichClass = getContext().getClass().getSimpleName();
-        Log.i("Ojo", whichClass);
-        currentView.setBackgroundColor(getContext().getResources().getColor
-                (R.color.category_colors));
+        //which fragment is calling the WordAdapter required for setting the color of the layout
 
-        /*switch (whichClass) {
-            case "ColorsActivity":
+
+        switch (mColorBackground) {
+            case BACKGROUND_COLORS:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_colors));
                 break;
 
-            case "FamilyActivity":
+            case BACKGROUND_FAMILY:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_family));
                 break;
 
-            case "NumbersActivity":
+            case BACKGROUND_NUMBERS:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_numbers));
                 break;
 
-            case "PhrasesActivity":
+            case BACKGROUND_PHRASES:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_phrases));
                 break;
@@ -64,7 +69,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
             default:
                 break;
         }
-*/
 
         //getting the item of the word array
         Word currentWord = getItem(position);

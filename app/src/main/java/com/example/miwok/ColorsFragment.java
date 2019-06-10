@@ -92,7 +92,8 @@ public class ColorsFragment extends Fragment {
 
         /*work adapter to inflate the layout customize
         This allows to recycle the view improving the performance*/
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), colorsWords);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), colorsWords,
+                WordAdapter.BACKGROUND_COLORS);
 
         //List view where is stored the adapter
         ListView listView = rootView.findViewById(R.id.list);

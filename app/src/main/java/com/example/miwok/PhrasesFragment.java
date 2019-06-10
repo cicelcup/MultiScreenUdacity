@@ -93,7 +93,8 @@ public class PhrasesFragment extends Fragment {
 
         /*work adapter to inflate the layout customize.
         This allows to recycle the view improving the performance*/
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), phrasesWords);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), phrasesWords,
+                WordAdapter.BACKGROUND_PHRASES);
 
         //List view where is stored the adapter
         ListView listView = rootView.findViewById(R.id.list);
