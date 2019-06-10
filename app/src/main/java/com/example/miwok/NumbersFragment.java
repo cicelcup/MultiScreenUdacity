@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class NumbersFragment extends Fragment {
 
     //Getting the name of the activity for using for the log (testing uses)
-    private static final String LOG_TAG = NumbersActivity.class.getSimpleName();
     private MediaPlayer mMediaPlayer; //media player variable
     private AudioManager mAudioManager; //Audio Manager from the system
 

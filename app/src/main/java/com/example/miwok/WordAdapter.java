@@ -37,8 +37,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //which class is calling the WordAdapter required for setting the color of the layout
         String whichClass = getContext().getClass().getSimpleName();
         Log.i("Ojo", whichClass);
+        currentView.setBackgroundColor(getContext().getResources().getColor
+                (R.color.category_colors));
 
-        switch (whichClass) {
+        /*switch (whichClass) {
             case "ColorsActivity":
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_colors));
@@ -62,7 +64,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
             default:
                 break;
         }
-
+*/
 
         //getting the item of the word array
         Word currentWord = getItem(position);
