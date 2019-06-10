@@ -6,7 +6,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,16 +70,6 @@ public class NumbersFragment extends Fragment {
         //getting the audio from the system
         mAudioManager = (AudioManager)
                 getActivity().getSystemService(Context.AUDIO_SERVICE);
-
-        //testing the Log class with an array and a for loop
-        String[] array = new String[2];
-        int size = array.length;
-
-        for (int index = 0; index < size; index++) {
-            array[index] = "Jorge " + index;
-            Log.d(LOG_TAG, array[index]);
-        }
-
 
         //Array list where are the words in english, mitowk, the image to display and the sound
         final ArrayList<Word> numbersWords = new ArrayList<>();
