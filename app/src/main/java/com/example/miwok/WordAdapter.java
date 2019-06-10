@@ -4,6 +4,7 @@ package com.example.miwok; //package of the project
 
 //libraries imported
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         //which class is calling the WordAdapter required for setting the color of the layout
         String whichClass = getContext().getClass().getSimpleName();
+        Log.i("Ojo", whichClass);
 
         switch (whichClass) {
             case "ColorsActivity":
