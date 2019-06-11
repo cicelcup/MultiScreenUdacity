@@ -1,6 +1,7 @@
 package com.example.miwok;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,15 +16,25 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        Bundle bundle = new Bundle();
+        WordFragment wordFragment = new WordFragment();
         switch (position) {
             case 0:
-                return new NumbersFragment();
+                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                wordFragment.setArguments(bundle);
+                return wordFragment;
             case 1:
-                return new NumbersFragment();
+                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                wordFragment.setArguments(bundle);
+                return wordFragment;
             case 2:
-                return new NumbersFragment();
+                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                wordFragment.setArguments(bundle);
+                return wordFragment;
             default:
-                return new NumbersFragment();
+                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                wordFragment.setArguments(bundle);
+                return wordFragment;
         }
     }
 

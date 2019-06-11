@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NumbersFragment extends Fragment {
+public class WordFragment extends Fragment {
 
     int option = WordAdapter.NUMBERS;
 
@@ -53,7 +53,7 @@ public class NumbersFragment extends Fragment {
     };
 
 
-    public NumbersFragment() {
+    public WordFragment() {
         // Required empty public constructor
     }
 
