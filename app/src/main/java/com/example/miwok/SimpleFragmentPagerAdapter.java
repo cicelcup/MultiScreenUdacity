@@ -19,11 +19,11 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new NumbersFragment();
             case 1:
-                return new FamilyFragment();
+                return new NumbersFragment();
             case 2:
-                return new ColorsFragment();
+                return new NumbersFragment();
             default:
-                return new PhrasesFragment();
+                return new NumbersFragment();
         }
     }
 

@@ -46,16 +46,4 @@ class Word {
     boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
     }
-
-    /*method to String for testing the attributes from a class
-    @Override
-    public String toString() {
-        return "Word{" +
-                "mMiwokWord='" + mMiwokWord + '\'' +
-                ", mDefaultWord='" + mDefaultWord + '\'' +
-                ", mImageResourceId=" + mImageResourceId +
-                ", mSound=" + mSound +
-                '}';
-    }
-    */
 }
