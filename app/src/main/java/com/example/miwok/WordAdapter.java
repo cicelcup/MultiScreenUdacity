@@ -16,11 +16,12 @@ import java.util.ArrayList;
 /*public class as an extension of the array adapter*/
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    //Color Constants
+    //Words Constants
     static final int COLORS = 1;
     static final int FAMILY = 2;
     static final int NUMBERS = 3;
     static final int PHRASES = 4;
+
     /*Constructor with three attributes, one for the context, another one with the list of words.
     and the color of the activity*/
     private int mColorBackground;
@@ -43,7 +44,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         //which fragment is calling the WordAdapter required for setting the color of the layout
-
 
         switch (mColorBackground) {
             case COLORS:

@@ -1,6 +1,6 @@
 package com.example.miwok;
 
-
+/*Libraries imported*/
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -19,14 +19,14 @@ import java.util.ArrayList;
  */
 public class WordFragment extends Fragment {
 
-    int option;
+    int option; //used for indicating which fragment to display
 
-    //Getting the name of the activity for using for the log (testing uses)
     private MediaPlayer mMediaPlayer; //media player variable
     private AudioManager mAudioManager; //Audio Manager from the system
 
     //Listening the audio system
-    AudioManager.OnAudioFocusChangeListener afChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+    AudioManager.OnAudioFocusChangeListener afChangeListener =
+            new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
             //losing the audio for a short time
@@ -45,7 +45,8 @@ public class WordFragment extends Fragment {
     };
 
     //listening the completion of the audio file
-    private MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener() {
+    private MediaPlayer.OnCompletionListener onCompletionListener =
+            new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
             releaseMediaPlayer();
@@ -63,6 +64,7 @@ public class WordFragment extends Fragment {
         //layout to open
         View rootView = inflater.inflate(R.layout.words, container, false);
 
+        //getting the information from the FragmentPageAdapter
         Bundle bundle = getArguments();
         option = Integer.parseInt(bundle.getString("key"));
         
@@ -80,7 +82,7 @@ public class WordFragment extends Fragment {
         switch (option) {
             case WordAdapter.COLORS:
 
-                addingColorWords(words);
+                addingColorWords(words); //adding information related to colors
 
         /*work adapter to inflate the layout customize
         This allows to recycle the view improving the performance*/
@@ -89,7 +91,7 @@ public class WordFragment extends Fragment {
                 break;
 
             case WordAdapter.FAMILY:
-                addingFamilyWords(words);
+                addingFamilyWords(words); //adding information related to family
 
 
         /*work adapter to inflate the layout customize..
@@ -99,7 +101,7 @@ public class WordFragment extends Fragment {
                 break;
 
             case WordAdapter.NUMBERS:
-                addingNumbersWords(words);
+                addingNumbersWords(words);  //adding information related to numbers
 
         /*work adapter to inflate the layout customize.
         This allows to recycle the view improving the performance*/
@@ -108,7 +110,7 @@ public class WordFragment extends Fragment {
                 break;
 
             default:
-                addingPhrasesWords(words);
+                addingPhrasesWords(words); //adding information related to phrases
 
         /*work adapter to inflate the layout customize.
         This allows to recycle the view improving the performance*/
@@ -126,7 +128,8 @@ public class WordFragment extends Fragment {
         AdapterView.OnItemClickListener mMessageClickedHandler =
                 new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    public void onItemClick(AdapterView<?> parent, View view, int position,
+                                            long id) {
 
                         releaseMediaPlayer(); //releasing the audio file
 
@@ -149,14 +152,14 @@ public class WordFragment extends Fragment {
         listView.setOnItemClickListener(mMessageClickedHandler);
 
 
-        return rootView;
-
+        return rootView; //returning the fragment
 
     }
 
+        /*Array list where is store the words in english, miwok, with the image to display and
+        the sound of the file for the colors words*/
+
     private void addingColorWords(ArrayList<Word> words) {
-        /*Array list where is store the words in english, mitowk, with the image to display and
-        the sound of the file*/
 
         words.add(new Word(getString(R.string.red), "weṭeṭṭi", R.drawable.color_red,
                 R.raw.color_red));
@@ -176,8 +179,10 @@ public class WordFragment extends Fragment {
                 R.raw.color_white));
     }
 
+    /*Array list where is store the words in english, miwok, with the image to display and
+        the sound of the file for the family words*/
     private void addingFamilyWords(ArrayList<Word> words) {
-        //Array list where are the words in english, mitowk, the image to display and the audio
+
         words.add(new Word(getString(R.string.father), "әpә", R.drawable.family_father,
                 R.raw.family_father));
         words.add(new Word(getString(R.string.mother), "әṭa", R.drawable.family_mother,
@@ -200,8 +205,10 @@ public class WordFragment extends Fragment {
                 R.drawable.family_grandfather, R.raw.family_grandfather));
     }
 
+    /*Array list where is store the words in english, miwok, with the image to display and
+        the sound of the file for the numbers words*/
     private void addingNumbersWords(ArrayList<Word> words) {
-//Array list where are the words in english, mitowk, the image to display and the sound
+
         words.add(new Word(getString(R.string.one), "lutti", R.drawable.number_one,
                 R.raw.number_one));
         words.add(new Word(getString(R.string.two), "otiiko", R.drawable.number_two,
@@ -224,8 +231,10 @@ public class WordFragment extends Fragment {
                 R.raw.number_ten));
     }
 
+    /*Array list where is store the words in english, miwok, with the image to display and
+        the sound of the file for the phrases words*/
+
     private void addingPhrasesWords(ArrayList<Word> words) {
-//Array list where is store the words in english, Miwok word and audio
         words.add(new Word(getString(R.string.where_are_you_going), "minto wuksus",
                 R.raw.phrase_where_are_you_going));
         words.add(new Word(getString(R.string.what_is_your_name), "tinnә oyaase'nә",
@@ -267,6 +276,7 @@ public class WordFragment extends Fragment {
         }
     }
 
+    //onStop for the fragment. Releasing the audio
     @Override
     public void onStop() {
         super.onStop();
