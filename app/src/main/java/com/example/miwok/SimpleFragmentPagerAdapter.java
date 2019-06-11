@@ -24,15 +24,15 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
                 wordFragment.setArguments(bundle);
                 return wordFragment;
             case 1:
-                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                bundle.putString("key", Integer.toString(WordAdapter.FAMILY));
                 wordFragment.setArguments(bundle);
                 return wordFragment;
             case 2:
-                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                bundle.putString("key", Integer.toString(WordAdapter.COLORS));
                 wordFragment.setArguments(bundle);
                 return wordFragment;
             default:
-                bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
+                bundle.putString("key", Integer.toString(WordAdapter.PHRASES));
                 wordFragment.setArguments(bundle);
                 return wordFragment;
         }

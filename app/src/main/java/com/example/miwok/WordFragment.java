@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class WordFragment extends Fragment {
 
-    int option = WordAdapter.NUMBERS;
+    int option;
 
     //Getting the name of the activity for using for the log (testing uses)
     private MediaPlayer mMediaPlayer; //media player variable
@@ -63,7 +63,9 @@ public class WordFragment extends Fragment {
         //layout to open
         View rootView = inflater.inflate(R.layout.words, container, false);
 
-
+        Bundle bundle = getArguments();
+        option = Integer.parseInt(bundle.getString("key"));
+        
         super.onCreate(savedInstanceState);
 
 
