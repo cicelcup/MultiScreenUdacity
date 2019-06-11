@@ -17,10 +17,10 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     //Color Constants
-    static final int BACKGROUND_COLORS = 1;
-    static final int BACKGROUND_FAMILY = 2;
-    static final int BACKGROUND_NUMBERS = 3;
-    static final int BACKGROUND_PHRASES = 4;
+    static final int COLORS = 1;
+    static final int FAMILY = 2;
+    static final int NUMBERS = 3;
+    static final int PHRASES = 4;
     /*Constructor with three attributes, one for the context, another one with the list of words.
     and the color of the activity*/
     private int mColorBackground;
@@ -46,22 +46,22 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
 
         switch (mColorBackground) {
-            case BACKGROUND_COLORS:
+            case COLORS:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_colors));
                 break;
 
-            case BACKGROUND_FAMILY:
+            case FAMILY:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_family));
                 break;
 
-            case BACKGROUND_NUMBERS:
+            case NUMBERS:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_numbers));
                 break;
 
-            case BACKGROUND_PHRASES:
+            case PHRASES:
                 currentView.setBackgroundColor(getContext().getResources().getColor
                         (R.color.category_phrases));
                 break;
