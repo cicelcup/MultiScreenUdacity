@@ -10,8 +10,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context mContext; //Context where the page adapter works
 
+//    Constructor
     SimpleFragmentPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
+//        Context for getting the string resource of the titles in the tab
         mContext = context;
     }
 
@@ -22,19 +24,19 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         //new fragment
         WordFragment wordFragment = new WordFragment();
         switch (position) {
-            case 0: //First View. Numbers
+            case 0: //First View. Numbers using the constant defined in WordAdapter
                 bundle.putString("key", Integer.toString(WordAdapter.NUMBERS));
                 wordFragment.setArguments(bundle);
                 return wordFragment;
-            case 1: //Second View. Family
+            case 1: //Second View. Family using the constant defined in WordAdapter
                 bundle.putString("key", Integer.toString(WordAdapter.FAMILY));
                 wordFragment.setArguments(bundle);
                 return wordFragment;
-            case 2: //Third View. Colors.
+            case 2: //Third View. Colors using the constant defined in WordAdapter
                 bundle.putString("key", Integer.toString(WordAdapter.COLORS));
                 wordFragment.setArguments(bundle);
                 return wordFragment;
-            default: //Last View. Phrases
+            default: //Last View. Phrases using the constant defined in WordAdapter
                 bundle.putString("key", Integer.toString(WordAdapter.PHRASES));
                 wordFragment.setArguments(bundle);
                 return wordFragment;

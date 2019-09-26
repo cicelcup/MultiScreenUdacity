@@ -16,16 +16,16 @@ import java.util.ArrayList;
 /*public class as an extension of the array adapter*/
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    //Words Constants
+    //Words Constants for opening each option into the tabs
     static final int COLORS = 1;
     static final int FAMILY = 2;
     static final int NUMBERS = 3;
     static final int PHRASES = 4;
 
-    /*Constructor with three attributes, one for the context, another one with the list of words.
-    and the color of the activity*/
     private int mColorBackground;
 
+    /*Constructor with three attributes, one for the context, another one with the list of words.
+       and the color of the activity*/
     WordAdapter(Context context, ArrayList<Word> listOfWords, int color) {
         super(context, 0, listOfWords); //Initialing the constructor of three parameters
         mColorBackground = color;

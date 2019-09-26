@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class WordFragment extends Fragment {
 
-    int option; //used for indicating which fragment to display
+    int option; //it's used for indicating which fragment to display
 
     private MediaPlayer mMediaPlayer; //media player variable
     private AudioManager mAudioManager; //Audio Manager from the system
@@ -55,7 +55,7 @@ public class WordFragment extends Fragment {
 
 
     public WordFragment() {
-        // Required empty public constructor
+        // it's required an empty public constructor
     }
 
     @Override
@@ -64,7 +64,7 @@ public class WordFragment extends Fragment {
         //layout to open
         View rootView = inflater.inflate(R.layout.words, container, false);
 
-        //getting the information from the FragmentPageAdapter
+        //getting the information from the SimpleFragmentPageAdapter to see which option to open
         Bundle bundle = getArguments();
         option = Integer.parseInt(bundle.getString("key"));
         
@@ -82,7 +82,7 @@ public class WordFragment extends Fragment {
         switch (option) {
             case WordAdapter.COLORS:
 
-                addingColorWords(words); //adding information related to colors
+                addingColorWords(words); //adding information related to colors into word array
 
         /*work adapter to inflate the layout customize
         This allows to recycle the view improving the performance*/
@@ -91,7 +91,7 @@ public class WordFragment extends Fragment {
                 break;
 
             case WordAdapter.FAMILY:
-                addingFamilyWords(words); //adding information related to family
+                addingFamilyWords(words); //adding information related to family into word array
 
 
         /*work adapter to inflate the layout customize..
@@ -101,7 +101,7 @@ public class WordFragment extends Fragment {
                 break;
 
             case WordAdapter.NUMBERS:
-                addingNumbersWords(words);  //adding information related to numbers
+                addingNumbersWords(words);  //adding information related to numbers into word array
 
         /*work adapter to inflate the layout customize.
         This allows to recycle the view improving the performance*/
@@ -110,7 +110,7 @@ public class WordFragment extends Fragment {
                 break;
 
             default:
-                addingPhrasesWords(words); //adding information related to phrases
+                addingPhrasesWords(words); //adding information related to phrases into word array
 
         /*work adapter to inflate the layout customize.
         This allows to recycle the view improving the performance*/
