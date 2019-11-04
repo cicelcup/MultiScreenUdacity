@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="are_you_coming">¿Vienes?</string>
+    <string name="black">negro</string>
+    <string name="brown">marrón</string>
+    <string name="category_colors">Colores</string>
+    <string name="category_family">Familia</string>
+    <string name="category_numbers">Números</string>
+    <string name="category_phrases">Frases</string>
+    <string name="come_here">Ven aquí</string>
+    <string name="daughter">hija</string>
+    <string name="dusty_yellow">amarillo oscuro</string>
+    <string name="eight">ocho</string>
+    <string name="father">padre</string>
+    <string name="five">cinco</string>
+    <string name="four">cuatro</string>
+    <string name="grandfather">abuelo</string>
+    <string name="grandmother">abuela</string>
+    <string name="gray">gris</string>
+    <string name="green">verde</string>
+    <string name="how_are_you_feeling">¿Cómo estas?</string>
+    <string name="i_m_coming">Voy</string>
+    <string name="i_m_feeling_good">Me siento bien</string>
+    <string name="image_item">Imagen para el item</string>
+    <string name="let_s_go">Vamonos</string>
+    <string name="mother">madre</string>
+    <string name="mustard_yellow">amarillo mostaza</string>
+    <string name="my_name_is">Mi nombre es</string>
+    <string name="nine">nueve</string>
+    <string name="older_brother">hermano mayor</string>
+    <string name="older_sister">hermana mayor</string>
+    <string name="one">uno</string>
+    <string name="play_icon">icono de reproducción</string>
+    <string name="red">rojo</string>
+    <string name="seven">siete</string>
+    <string name="six">seis</string>
+    <string name="son">hijo</string>
+    <string name="ten">diez</string>
+    <string name="three">tres</string>
+    <string name="two">dos</string>
+    <string name="what_is_your_name">¿Cual es tu nombre?</string>
+    <string name="where_are_you_going">¿A dondé vas?</string>
+    <string name="white">blanco</string>
+    <string name="yes_I_m_coming">Si, voy</string>
+    <string name="younger_brother">hermano menor</string>
+    <string name="younger_sister">hermana mayor</string>
+</resources>
